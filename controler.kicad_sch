@@ -9307,6 +9307,14 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C20625731"
+			(at 62.23 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "4"
 			(uuid "2710b280-0f98-42f3-b6f0-aec9e464fb8c")
 		)
@@ -9448,6 +9456,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "LCSC" "C97521"
+			(at 236.22 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -10634,6 +10650,14 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C2040"
+			(at 105.41 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "6fe76ecb-4f12-4301-9230-bb15634ef937")
 		)
@@ -11370,7 +11394,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "c88e07f5-77c0-443d-a323-2f7e81933e33")
 		(property "Reference" "R31"
