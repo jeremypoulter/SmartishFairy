@@ -5,8 +5,8 @@ SmartishFairy is a smart controller for inexpensive consumer fairy lights that p
 
 ### Key Features
 - Control up to 12 output channels (6 pairs of lights)
-- Support for high voltage input (up to 50V)
-- Multiple operating modes for different control schemes
+- Support for high voltage input (8-52V per driver; each output should be run at its light string's rated voltage)
+- Multiple operating modes for different control schemes, configured over USB (no DIP switches)
 - Compatible with common lighting protocols (WS2812, SPI)
 - Based on the powerful RP2040 microcontroller
 - Cost-effective solution for home or commercial lighting displays
@@ -14,19 +14,31 @@ SmartishFairy is a smart controller for inexpensive consumer fairy lights that p
 ## Hardware Specifications
 
 ### Power and Output
-- Input voltage: up to 50V DC
-- Output channels: 12 channels total (6 sets, assuming 2 channels per set)
-- Driver: 3 × L6226QTR dual channel motor drivers
+- Input voltage: 8-52V DC per driver (L6226 limit). Match each driver's supply to the rated voltage of the light strings on it (typically 24-31V for mains-adapter strings). Three independent supply inputs (IN1-IN3) can be linked with the J9/J10 jumpers.
+- Each supply input has a series Schottky diode (reverse-polarity protection) and a **DNP** TVS footprint (SMBJ33A). Fit the TVS only on inputs of 31V or less - no TVS can protect the L6226 (60V absolute max) above about 33V. For higher-voltage strings, connect the adapter to the board *before* plugging it into the wall (long adapter leads plus ceramic caps can ring to almost twice the supply voltage on hot-plug).
+- Output channels: 12 channels total (6 strings, each wired as one H-bridge output pair)
+- Driver: 3 x L6226QTR dual full-bridge drivers. The L6226 can drive both outputs of a bridge high at the same time, which the independent output modes rely on.
+- Overcurrent trip: R_CL = 22K gives about 0.5A (I = 11050 / R_CL). Each driver's EN/OCD pins form one fault node (pull-up + 5.6nF); a fault disables both bridges of that driver and is readable on its EN_FAULT GPIO.
+- Logic power: a 5V buck (LMR16006X, 700kHz) runs from whichever of VS1-VS3 is powered, OR-ed (diodes) with USB 5V and the Ctl_Pwr terminal, so the board runs from a single supply. 3.3V comes from an AP2112K LDO.
+- Supply voltage monitoring: each VS rail is divided by about 17 (100K/6.2K) into an RP2040 ADC pin (52V reads 3.0V).
 
-### Driver Configuration
-- Each driver has separate input - jumper available to link input rails
-- Output side presents source voltage and ground for independent channels
+### Data Interface
+- Data_In / Data_Out terminals carry GND, CLK, DIN/DOUT and 5V. DIN and CLK are buffered into the 3.3V domain (74LVC2G17, 5V-tolerant inputs); DOUT is buffered up to 5V (74AHCT1G125). CLK is input-only and is passed through to Data_Out.
+- USB D+/D- are protected by a USBLC6-2SC6 ESD array.
 
-### Pin Requirements
-- 12 output pins (for driving the L6226QTR controllers)
-- 8 configuration pins
-- 3 SPI pins (possibly 4 if chip select is needed)
-- Based on the RP2040 microcontroller
+### Pin Allocation (RP2040)
+| GPIO | Function |
+|------|----------|
+| 0, 1 | UART TX/RX (debug header) |
+| 2-13 | CH0-CH11 driver inputs. Each bridge's IN1/IN2 are an even/odd pair so they share a PWM slice (CH0/CH1 are on GPIO12/13) |
+| 14, 15, 17 | EN_FAULT1-3 (one per L6226; open-drain style - the board pulls up, firmware drives low to disable, reads low as a fault) |
+| 16, 18, 19 | DIN, CLK, DOUT |
+| 20-23 | Status LEDs: PWR, DATA, FAULT, SETUP (left to right on the board) |
+| 26-28 | VS1-VS3 voltage sense (ADC0-2) |
+| 24, 25, 29 | Spare |
+
+## Configuration
+There are no DIP switches. Settings (output modes and input mode below) are stored in flash and changed over the USB-C port (USB serial console), and a BOOT/SETUP push button is fitted on the QSPI chip-select line (hold it while resetting or powering up to enter the USB bootloader; the firmware can also read it as a user button, using the standard Pico-SDK BOOTSEL technique, to step through presets with the status LEDs showing the selection).
 
 ## Operating Modes
 
@@ -49,15 +61,14 @@ SmartishFairy is a smart controller for inexpensive consumer fairy lights that p
 ## Installation and Setup
 
 ### Hardware Requirements
-- RP2040-based board (such as Raspberry Pi Pico)
-- 3 × L6226QTR dual channel motor drivers
+- The SmartishFairy board (RP2040 + 3 x L6226QTR dual full-bridge drivers)
 - Appropriate power supply (rated for your fairy lights, up to 50V)
 - Connecting wires/jumpers
 - Fairy light strings (compatible with the voltage of your setup)
 
 ### Wiring
 1. Connect the RP2040 to the L6226QTR drivers according to the pin mapping in the firmware
-2. Set configuration jumpers according to your desired operating mode
+2. Set the operating modes over USB (see Configuration)
 3. Connect the power supply to the input rails
 4. Connect fairy lights to the output channels
 
@@ -107,6 +118,7 @@ For direct control of individual channels:
 ## Resources
 - [RP2040 Hardware Design Guide](https://datasheets.raspberrypi.com/rp2040/hardware-design-with-rp2040.pdf)
 - [L6226QTR Datasheet](https://www.st.com/resource/en/datasheet/l6226q.pdf)
+- [LMR16006 Datasheet](https://www.ti.com/lit/ds/symlink/lmr16006.pdf)
 
 ## Contributing
 Contributions to the SmartishFairy project are welcome! Please feel free to submit pull requests or open issues for bugs, questions, or feature requests.
