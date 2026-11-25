@@ -18,7 +18,7 @@ SmartishFairy is a smart controller for inexpensive consumer fairy lights that p
 ### Power and Output
 - **Single main input, 12-50 V DC** (`MAIN_IN`): Data_In pin 4 (V+ over the lighting-control cable) or the Main_In terminal, diode-OR-ed for reverse-polarity protection. Data_Out pin 4 passes the input power on through a 3A PTC fuse. A TVS footprint is provided but unfitted; fit SMBJ28A only on 12-24 V builds (no TVS can protect the 60 V-rated parts above about 33 V), and connect the supply to the board before plugging it into the wall.
 - **High-voltage bus (`HVBUS`)** feeds the per-driver supplies. Build options: **pass-through** (SS310 from MAIN_IN: MAIN_IN is already the string voltage, 24-50 V) and/or a **boost converter** for a "12 V mode" (XL6019E1, software-set 26-50 V, about 30 W from 12 V, MAIN_IN <= ~24 V on boost builds (a boost cannot output less than its input minus the diode drop, and the XL6019E1 VIN absolute maximum is 45 V); the diode must be >= 60 V).
-- **Per-driver supply:** either a **software-set LM5164 buck** (HVBUS -> VSn, about 24-50 V, 1 A each) or a 0R link from HVBUS to VSn (shared voltage). Fit one or the other for each driver.
+- **Per-driver supply** (inside each driver sheet): either a **software-set LM5164 buck** (HVBUS -> VSn, about 24-50 V, 1 A each) or a 0R link from HVBUS to VSn (shared voltage). Fit one or the other for each driver.
 - **Software control:** an I2C DAC (MCP4728, one channel per converter) injects current into each converter's feedback pin; the ADC reads VS1-VS3 and HVBUS back so the firmware can trim to the exact voltage. Every converter enable has a pull-down, so nothing runs until the firmware has set the DAC. Set the DAC's EEPROM power-up values to the maximum code (lowest voltage) for the three bucks and to 0 V for the boost, so nothing is injected into the boost feedback pin while MAIN_IN is absent (USB-only). The DAC is powered from 3.3 V, so keep codes at or below 3.2 V. Keep each driver's VSn at least about 8 V below HVBUS: the buck's ripple injection depends on that headroom.
 - **Build straps:** an I2C expander (PCA9538) drives the converter enables and reads one strap per optional block (boost, buck 1-3): a 0R to GND in the block means it is fitted, a 100K pull-up means it is not. One firmware therefore adapts to whatever was assembled.
 - Output channels: 12 channels total (6 strings, each wired as one H-bridge output pair), 3 x L6226QTR dual full-bridge drivers. The L6226 can drive both outputs of a bridge high at once, which the independent output modes rely on. Sized for one 1000-LED string per output (about 6-12 W at 31 V).
@@ -31,11 +31,13 @@ The schematic marks the optional converter blocks DNP, so the **default build is
 
 | Variant | Fit | Do not fit |
 |---------|-----|------------|
-| Default (shared voltage) | D25, R44-R46 | boost block (U12, L5, D26, R75-R79, C62-C64) and per-driver buck blocks (U15-U17 and their parts) |
-| Per-driver voltage | the buck block for a driver (U15 = driver 1, U16 = 2, U17 = 3, with its parts and 0R strap) | that driver's 0R link (R44 = 1, R45 = 2, R46 = 3) - never both |
+| Default (shared voltage) | D25 and the 0R bypass link in each driver sheet (R44 / R59 / R67 for drivers 1 / 2 / 3) | boost block (U12, L5, D26, R75-R79, C62-C64) and the buck parts in each driver sheet (U15 / U16 / U17, L2-L4, C50-C61, R45-R46, R54-R58, R60-R66, R68-R74) |
+| Per-driver voltage | the buck parts for that driver (U15 = driver 1, U16 = 2, U17 = 3, with its parts and 0R strap) | that driver's 0R bypass link (R44 / R59 / R67) - never both |
 | 12 V mode (low-power) | boost block U12; MAIN_IN <= ~24 V | - |
 
 The unfitted blocks' 0R strap resistors are also left off, so the firmware reads them as "not fitted".
+
+The per-driver buck is drawn once, inside `driver.kicad_sch`, which all three driver sheets share. A plain DNP flag therefore applies to all three drivers at once; to build a mix (for example a buck on one driver only) use KiCad 10 design variants or edit the DNP flags of that driver's instance (I have not verified how KiCad 10 applies variants per sheet instance).
 
 ### Optional ESP32 / WLED module
 A Wemos D1 mini (generic pinout) pair of 1x8 sockets, with the module stacked above the board (low parts can sit underneath; allow roughly 8 mm of clearance), plus a 3-pin header (5V / DATA / GND) for any other module. External-antenna module variants avoid any WiFi keep-out concern.
