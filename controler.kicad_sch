@@ -12612,8 +12612,8 @@
 		)
 		(uuid "07c1c1e9-cdf0-46ca-b528-d53e2e4f7e09")
 	)
-	(hierarchical_label "EN_FAULT3"
-		(shape bidirectional)
+	(hierarchical_label "ESP_CS"
+		(shape input)
 		(at 133.35 95.25 0)
 		(effects
 			(font
@@ -12853,8 +12853,8 @@
 		)
 		(uuid "e58e21f5-29ac-401e-88f0-5bf0830aed87")
 	)
-	(hierarchical_label "DIN_ESP"
-		(shape input)
+	(hierarchical_label "EN_FAULT3"
+		(shape bidirectional)
 		(at 133.35 110.49 0)
 		(effects
 			(font
@@ -12863,5 +12863,16 @@
 			(justify left)
 		)
 		(uuid "90374d88-448f-427a-b491-761ed8ca2220")
+	)
+	(text "SPI slave (optional ESP master): GPIO16 MOSI=DIN, 17 CS=ESP_CS (no pull-up: ESP8266 D8 must be low at boot),\n18 SCK=CLK, 19 MISO=DOUT. EN_FAULT3 moved to GPIO23."
+		(exclude_from_sim no)
+		(at 30.48 142 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8b31e542-0cc0-4074-a4fe-8e82eaf9b929")
 	)
 )

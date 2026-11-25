@@ -6363,6 +6363,129 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Connector:TestPoint"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.762)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "TP"
+				(at 0 6.858 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TestPoint"
+				(at 0 5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "test point"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "test point tp"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Pin* Test*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "TestPoint_0_1"
+				(circle
+					(center 0 3.302)
+					(radius 0.762)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "TestPoint_1_1"
+				(pin passive line
+					(at 0 0 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 	)
 	(text_box "3 X dual channel motor drivers - L6226QTR\n\nEach has separate input - jumper to link input rails\nOutput side, present source voltage and ground for independent channels\n\nOutput modes\n\n0 - switching\n1 - TBD\n2 - independent high is on\n3 - independent low is on\n\n2 bits per driver, 6 bits total\n\nInput mode\nWS2812 / SPI\nRGB / Single\n\n2 bits\n\nRGB converts the RGB into a brightness, IE 12 virtual RGB lights map to the 12 outputs\nSingle, each input channel controls an output, IE 4 virtual RGBe will map to the 12 output channels\n\n12 output pins\n8 config pins\n3 SPI (possibly 4 if we need chip select)\n\n"
 		(exclude_from_sim no)
@@ -10561,7 +10684,7 @@
 				(justify right)
 			)
 		)
-		(pin "DIN_ESP" input
+		(pin "ESP_CS" input
 			(at 173.99 102.87 0)
 			(uuid "0a8b3d3d-9f8e-44c9-94e2-95ad0548de7f")
 			(effects
@@ -19031,423 +19154,6 @@
 			)
 		)
 	)
-	(symbol
-		(lib_id "Jumper:SolderJumper_2_Open")
-		(at 276.86 154.94 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "96c60acd-f16c-4aea-9636-55f0ed4bb869")
-		(property "Reference" "JP1"
-			(at 279.4 153.67 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "DATA_PIN_1"
-			(at 279.4 156.21 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
-			(at 276.86 154.94 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 276.86 154.94 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Solder Jumper, 2-pole, open"
-			(at 276.86 154.94 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "8f4d18c6-ac7e-427b-8eab-c03b6a50144f")
-		)
-		(pin "2"
-			(uuid "23d088fc-3412-442f-886e-4c85be55a540")
-		)
-		(instances
-			(project "NightLight_ESP32"
-				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
-					(reference "JP1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(wire
-		(pts
-			(xy 304.8 160.02) (xy 307.34 160.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "56065078-4b60-4b5b-b9c6-384fb68db77e")
-	)
-	(label "ESP_D1"
-		(at 307.34 160.02 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "2a5b4a74-1f60-4fda-a7c4-7d8ff4748618")
-	)
-	(wire
-		(pts
-			(xy 271.78 154.94) (xy 269.24 154.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "786947c8-1937-4f78-82ef-6913a22e62c3")
-	)
-	(label "ESP_D1"
-		(at 269.24 154.94 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "12e7c957-f550-4934-9ede-3d224f93b7c9")
-	)
-	(wire
-		(pts
-			(xy 281.94 154.94) (xy 284.48 154.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "44c50163-2123-4ac0-87ad-b06bdfd5a632")
-	)
-	(label "DIN_ESP"
-		(at 284.48 154.94 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "b2ca8e87-4ee2-4cb3-ac6a-f77b1dfc306c")
-	)
-	(symbol
-		(lib_id "Jumper:SolderJumper_2_Open")
-		(at 276.86 160.02 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "2bd8dc47-a359-4cf1-9096-f91a07954f1a")
-		(property "Reference" "JP2"
-			(at 279.4 158.75 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "DATA_PIN_2"
-			(at 279.4 161.29 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
-			(at 276.86 160.02 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 276.86 160.02 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Solder Jumper, 2-pole, open"
-			(at 276.86 160.02 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "946e54b4-bb0f-43f5-acd0-28d94eb4025f")
-		)
-		(pin "2"
-			(uuid "a7191355-66dc-48d5-a098-b2f37a1fe675")
-		)
-		(instances
-			(project "NightLight_ESP32"
-				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
-					(reference "JP2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(wire
-		(pts
-			(xy 304.8 162.56) (xy 307.34 162.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6a6f631f-8110-413b-af43-8f67a32762fc")
-	)
-	(label "ESP_D2"
-		(at 307.34 162.56 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "5facd3bc-204e-4e86-9978-5f03cced4f7f")
-	)
-	(wire
-		(pts
-			(xy 271.78 160.02) (xy 269.24 160.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6387c40e-5532-495e-8b40-d8c1d566a457")
-	)
-	(label "ESP_D2"
-		(at 269.24 160.02 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "6b2a0265-b4a7-448e-ad4d-530fe906d064")
-	)
-	(wire
-		(pts
-			(xy 281.94 160.02) (xy 284.48 160.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3c781806-49d1-48dc-9d8b-c29f78ccd3ad")
-	)
-	(label "DIN_ESP"
-		(at 284.48 160.02 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "bf94a448-e692-4bc2-b748-3660acbdedf7")
-	)
-	(symbol
-		(lib_id "Jumper:SolderJumper_2_Open")
-		(at 276.86 165.1 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "1475884a-a1e8-4d38-afac-31250b4ac1c5")
-		(property "Reference" "JP3"
-			(at 279.4 163.83 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "DATA_PIN_3"
-			(at 279.4 166.37 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
-			(at 276.86 165.1 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 276.86 165.1 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Solder Jumper, 2-pole, open"
-			(at 276.86 165.1 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f5443828-835a-4de2-9125-5fd5ce79ae77")
-		)
-		(pin "2"
-			(uuid "75b7264a-6243-4a59-83ea-5d7a91c1932b")
-		)
-		(instances
-			(project "NightLight_ESP32"
-				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
-					(reference "JP3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(wire
-		(pts
-			(xy 304.8 165.1) (xy 307.34 165.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8b27aa14-7294-486f-bd7d-620dc1ea060e")
-	)
-	(label "ESP_D3"
-		(at 307.34 165.1 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "d04281cd-c80f-4669-bd3a-184a26fcda00")
-	)
-	(wire
-		(pts
-			(xy 271.78 165.1) (xy 269.24 165.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9ae71f8f-e80b-47fd-80d6-7034204e857b")
-	)
-	(label "ESP_D3"
-		(at 269.24 165.1 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "85e9e73d-afaa-482e-843c-3db6e3b8149e")
-	)
-	(wire
-		(pts
-			(xy 281.94 165.1) (xy 284.48 165.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3661f8ed-3f97-4f92-8334-abd5631d0845")
-	)
-	(label "DIN_ESP"
-		(at 284.48 165.1 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "e21391db-1ec5-4fd1-abbb-67d17008e988")
-	)
 	(wire
 		(pts
 			(xy 384.81 157.48) (xy 387.35 157.48)
@@ -19478,7 +19184,7 @@
 		)
 		(uuid "24d45e36-7584-4495-898d-16444a680cad")
 	)
-	(label "DIN_ESP"
+	(label "DIN_5V_F"
 		(at 387.35 160.02 0)
 		(effects
 			(font
@@ -19588,10 +19294,6 @@
 		(uuid "b80ed0df-4b00-4b81-97a1-4243e97bf827")
 	)
 	(no_connect
-		(at 304.8 167.64)
-		(uuid "aabffbd1-7b5a-405b-b970-f34ce558e742")
-	)
-	(no_connect
 		(at 304.8 170.18)
 		(uuid "96a5d1be-41f5-438a-bdb4-ae6cc491e9e3")
 	)
@@ -19619,203 +19321,6 @@
 		(at 345.44 165.1)
 		(uuid "f38f7991-7eb4-403f-a39f-b30e27ee14bf")
 	)
-	(symbol
-		(lib_id "Device:R")
-		(at 355.6 190.5 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "cd4491d3-8902-4e2e-8876-79060c5c2582")
-		(property "Reference" "R47"
-			(at 358.14 189.23 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "100K"
-			(at 358.14 191.77 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 355.6 190.5 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 355.6 190.5 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 355.6 190.5 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "460a935f-1c9d-4b4c-afcf-e21e3879996d")
-		)
-		(pin "2"
-			(uuid "04e7e284-4943-47c3-98c8-5f6d0afd87ff")
-		)
-		(instances
-			(project "NightLight_ESP32"
-				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
-					(reference "R47")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(wire
-		(pts
-			(xy 355.6 186.69) (xy 355.6 184.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "21262880-1b99-4253-af79-7561909ac4b4")
-	)
-	(label "DIN_ESP"
-		(at 355.6 184.15 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "eb290fb1-c05c-4b93-98cc-e86599a9df5a")
-	)
-	(wire
-		(pts
-			(xy 355.6 194.31) (xy 355.6 196.85)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6eb7fb91-e1b3-4b69-9564-5e708a8486ee")
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 355.6 196.85 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(in_pos_files no)
-		(dnp no)
-		(uuid "518c7653-6ad0-4909-aa56-246b8e5d95a5")
-		(property "Reference" "#PWR0606"
-			(at 358.14 195.58 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 358.14 198.12 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 355.6 196.85 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 355.6 196.85 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 355.6 196.85 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b5ef80ed-9cab-44ed-b59a-35ccad535e7b")
-		)
-		(instances
-			(project "NightLight_ESP32"
-				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
-					(reference "#PWR0606")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(text "Optional ESP module (WLED): Wemos D1 mini style sockets (verify pin map against your board)\nor 3-pin header 5V/DATA/GND for any module. Module is powered from 5V only (not the USB 5V rail),\nflash it via its own USB. Pick the data pin with a solder jumper; 3V3 is not connected."
-		(exclude_from_sim no)
-		(at 278 142 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ed5ada62-072f-40b0-b77e-6a57518df9c9")
-	)
 	(wire
 		(pts
 			(xy 173.99 102.87) (xy 176.53 102.87)
@@ -19826,7 +19331,7 @@
 		)
 		(uuid "d33c4979-a732-4968-835c-5f6f048adc7b")
 	)
-	(label "DIN_ESP"
+	(label "ESP_CS"
 		(at 176.53 102.87 0)
 		(effects
 			(font
@@ -19835,5 +19340,1335 @@
 			(justify left bottom)
 		)
 		(uuid "84f858cb-a562-4049-90b7-97b27e940455")
+	)
+	(wire
+		(pts
+			(xy 304.8 160.02) (xy 307.34 160.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6d8d13ae-a415-4a02-81f9-e3d302bfa717")
+	)
+	(label "CLK_5V_F"
+		(at 307.34 160.02 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ec8c8857-50fd-402e-b69a-33e1fab30f95")
+	)
+	(wire
+		(pts
+			(xy 304.8 162.56) (xy 307.34 162.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "176ab23e-bfd2-4f51-aa6d-dfba6422f085")
+	)
+	(label "DOUT"
+		(at 307.34 162.56 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6e7ff187-4a29-4d06-9ef8-191e543398b5")
+	)
+	(wire
+		(pts
+			(xy 304.8 165.1) (xy 307.34 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "60991f93-736b-4272-b21e-64434cff4ef3")
+	)
+	(label "DIN_5V_F"
+		(at 307.34 165.1 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f0f63d76-5e0f-40e5-8514-d094d6f25543")
+	)
+	(wire
+		(pts
+			(xy 304.8 167.64) (xy 307.34 167.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "48f69db7-888e-420c-a164-0546112ece78")
+	)
+	(label "ESP_CS"
+		(at 307.34 167.64 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "03aa15d7-525d-4512-a33a-f0f693be9f14")
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 340.36 199.39 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "9bb6b356-48cb-42ff-84bc-7dc257065f3a")
+		(property "Reference" "TP1"
+			(at 340 194 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_VS1"
+			(at 340 206 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 340.36 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 340.36 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 340.36 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "87279017-c747-4258-af7e-07eac93a3305")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "TP1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 340.36 199.39) (xy 340.36 201.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "72aced1a-0b81-4a21-8a0b-874413a43dcd")
+	)
+	(label "VS1"
+		(at 340.36 201.93 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "db82a419-2fb8-4f5c-9db0-868caeb0b0be")
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 350.52 199.39 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "f067e3a5-f059-481b-85d8-208bf5e3992d")
+		(property "Reference" "TP2"
+			(at 350 194 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_VS2"
+			(at 350 206 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 350.52 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 350.52 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 350.52 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c0caec37-9f96-4511-8f74-21f535d81eb4")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "TP2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 350.52 199.39) (xy 350.52 201.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "adabca4a-8142-4f7e-8929-8550a2f5df20")
+	)
+	(label "VS2"
+		(at 350.52 201.93 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "31a1bf0b-38f0-4f77-ba14-6f4978d8e6fc")
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 359.41 199.39 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "131cd42f-245c-4106-84ab-7b5e216c25b6")
+		(property "Reference" "TP3"
+			(at 360 194 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_VS3"
+			(at 360 206 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 359.41 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 359.41 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 359.41 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "848a02ae-3f8a-4f70-8284-2cd898c8b682")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "TP3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 359.41 199.39) (xy 359.41 201.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9e9ff01b-9f60-4a0c-8f7e-d7cebbe86ac8")
+	)
+	(label "VS3"
+		(at 359.41 201.93 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "f14ee04d-4a88-42b0-99cf-95aefcb44dc1")
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 369.57 199.39 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "38f610bc-def8-4ca9-95af-cd4dca69295d")
+		(property "Reference" "TP4"
+			(at 370 194 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_HVBUS"
+			(at 370 206 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 369.57 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 369.57 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 369.57 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2974e754-1557-48b5-8402-ea755ec14716")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "TP4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 369.57 199.39) (xy 369.57 201.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4d621cc4-f134-41d1-bbc3-6001368f6621")
+	)
+	(label "HVBUS"
+		(at 369.57 201.93 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "b534eff6-c4eb-4c62-9bc6-15ccfe85cf78")
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 379.73 199.39 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "47cb76f2-1512-4707-a545-bdd99872ae28")
+		(property "Reference" "TP5"
+			(at 380 194 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_MAIN_IN"
+			(at 380 206 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 379.73 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 379.73 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 379.73 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "85f37464-9c64-4783-92c8-09d8fa79b751")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "TP5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 379.73 199.39) (xy 379.73 201.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8f222012-a9de-4e9c-9a46-e42505d51ebe")
+	)
+	(label "MAIN_IN"
+		(at 379.73 201.93 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "71ab36f6-f083-4ca8-bd22-8b007614eacb")
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 389.89 199.39 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "7f75c7ee-905d-495f-a66b-d87a9c9b2de3")
+		(property "Reference" "TP6"
+			(at 390 194 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_ESP_5V"
+			(at 390 206 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 389.89 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 389.89 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 389.89 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5b7a69d5-0df2-4abe-8dff-443ceceae4d4")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "TP6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 389.89 199.39) (xy 389.89 201.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "05e51718-6d42-483d-9956-9bc169546445")
+	)
+	(label "ESP_5V"
+		(at 389.89 201.93 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "d9aa43de-27db-4b32-af00-2f1a69bb3250")
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 400.05 199.39 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "08911f21-cce8-4bb9-b6bb-65f9b62c6f70")
+		(property "Reference" "TP7"
+			(at 400 194 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_5V"
+			(at 400 206 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 400.05 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 400.05 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 400.05 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7435f42b-bb94-499a-9116-71ae2b47d4c5")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "TP7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 400.05 199.39) (xy 400.05 201.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4a5328d2-62f9-46e9-a607-f6916eb2bc81")
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 400.05 201.93 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "e1bfb1e9-fe93-4dab-9807-bde2eb0097e2")
+		(property "Reference" "#PWR0701"
+			(at 402.59 200.66 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 402.59 203.2 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 400.05 201.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 400.05 201.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 400.05 201.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "be98edae-50a3-4b09-a5b6-c45184decd2d")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "#PWR0701")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 410.21 199.39 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "30c75618-3f0c-4d41-8289-b99a71a3188c")
+		(property "Reference" "TP8"
+			(at 410 194 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_3V3"
+			(at 410 206 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 410.21 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 410.21 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 410.21 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f48ea99e-cc91-49e8-8ecd-d0fac35292df")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "TP8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 410.21 199.39) (xy 410.21 201.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "de268fe0-9d35-4c43-a364-c5796b2a2bff")
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 410.21 201.93 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "e0b4549d-8100-42ca-b7b0-8ba895ece096")
+		(property "Reference" "#PWR0702"
+			(at 412.75 200.66 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 412.75 203.2 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 410.21 201.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 410.21 201.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 410.21 201.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c6cc289c-b0d7-4742-ace9-1f747e5c395f")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "#PWR0702")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 420.37 199.39 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "41d6be5b-3f2c-4a3f-859e-d41f029793d6")
+		(property "Reference" "TP9"
+			(at 420 194 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_GND"
+			(at 420 206 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 420.37 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 420.37 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 420.37 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ffae5c19-5046-46a7-9e2b-6c9c5fcc5504")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "TP9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 420.37 199.39) (xy 420.37 201.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "243692dc-1800-48d7-8378-7a48164a134b")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 420.37 201.93 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "8e4e4717-a1ff-47dd-a311-3769d965c127")
+		(property "Reference" "#PWR0703"
+			(at 422.91 200.66 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 422.91 203.2 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 420.37 201.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 420.37 201.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 420.37 201.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4457d111-2014-4ba5-818d-9599cb008833")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "#PWR0703")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 430.53 199.39 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "06cac5f7-d37e-401c-84f3-0e57916ebdca")
+		(property "Reference" "TP10"
+			(at 430 194 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_GND"
+			(at 430 206 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 430.53 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 430.53 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 430.53 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d1a5a16c-fd7f-406d-90d8-4ef0e6a61c8c")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "TP10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 430.53 199.39) (xy 430.53 201.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "08925556-aa52-436f-a241-143b1112677a")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 430.53 201.93 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "3b75d1e6-56dc-4b16-b2af-9152d7b0f0e0")
+		(property "Reference" "#PWR0704"
+			(at 433.07 200.66 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 433.07 203.2 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 430.53 201.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 430.53 201.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 430.53 201.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "63a1c255-5942-4212-9b9a-6bf4430f2e3e")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "#PWR0704")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(text "Test pads: VS1-3, HVBUS, MAIN_IN, ESP_5V, +5V, +3V3, GND x2"
+		(exclude_from_sim no)
+		(at 340 190 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "1461371d-e6ed-4a48-bdbe-a1cb691ea403")
+	)
+	(text "Optional ESP module (WLED, ESPHome...): Wemos D1 mini generic pinout on two 1x8 sockets, stacked above the board\n(low parts may sit underneath). SPI master -> RP2040 SPI0 slave: D5 SCK -> CLK, D7 MOSI -> DIN, D6 MISO <- DOUT, D8 CS -> ESP_CS.\nAssumes no external data in when the ESP is fitted. 3-pin header 5V/DATA/GND: DATA joins DIN for single-wire (WS2812) data.\nPowered from the main-power 5V only (not USB); flash it through its own USB. 3V3 not connected."
+		(exclude_from_sim no)
+		(at 278 150 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5076aa18-679c-444e-842a-b3a9d061cd2c")
 	)
 )

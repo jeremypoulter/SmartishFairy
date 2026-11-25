@@ -22,7 +22,9 @@ SmartishFairy is a smart controller for inexpensive consumer fairy lights that p
 - Supply voltage monitoring: each VS rail is divided by about 17 (100K/6.2K) into an RP2040 ADC pin (52 V reads 3.0 V).
 
 ### Optional ESP32 / WLED module
-A Wemos D1 mini style pair of 1x8 headers (fits boards such as the LOLIN S3 Mini and the classic D1 mini; check your board's pinout) and a 3-pin header (5V / DATA / GND) for any other module. The module is powered from its 5V pin from the main buck only (not from USB), is programmed through its own USB, and its WLED pixel output feeds the RP2040 (GPIO23, `DIN_ESP`) as an internal WS2812 input. Pick the module's data pin with one of three solder jumpers; 3V3 is not connected. Keep the antenna end clear of copper and away from the converters.
+A Wemos D1 mini (generic pinout) pair of 1x8 sockets, with the module stacked above the board (low parts can sit underneath; allow roughly 8 mm of clearance), plus a 3-pin header (5V / DATA / GND) for any other module. External-antenna module variants avoid any WiFi keep-out concern.
+- **Power:** from the module's 5V pin, from the main-power buck only (not USB). Flash it through its own USB. Its 3V3 pin is not connected.
+- **Data:** the module shares the board's data-in pins, on the assumption that no external data source is connected when it is fitted. A single-wire stream (WS2812 timing) from the 3-pin header DATA pin or D7 goes through the same buffer as Data_In. The full SPI link uses the RP2040's SPI0 slave pins with no extra components: D5 SCK -> CLK (GPIO18), D7 MOSI -> DIN (GPIO16), D6 MISO <- DOUT (GPIO19), D8 CS -> ESP_CS (GPIO17). Leave GPIO17 without a pull-up: an ESP8266 D8 must be low at boot.
 
 ### Data Interface
 - Data_In / Data_Out terminals carry GND, CLK, DIN/DOUT and V+ (MAIN_IN, passed through). DIN and CLK are buffered into the 3.3V domain (74LVC2G17, 5V-tolerant inputs); DOUT is buffered up to 5V (74AHCT1G125) from the 5 V rail. CLK is input-only and is passed through to Data_Out.
@@ -33,12 +35,14 @@ A Wemos D1 mini style pair of 1x8 headers (fits boards such as the LOLIN S3 Mini
 |------|----------|
 | 0, 1 | UART TX/RX (debug header) |
 | 2-13 | CH0-CH11 driver inputs. Each bridge's IN1/IN2 are an even/odd pair so they share a PWM slice (CH0/CH1 are on GPIO12/13) |
-| 14, 15, 17 | EN_FAULT1-3 (one per L6226; open-drain style - the board pulls up, firmware drives low to disable, reads low as a fault) |
-| 16, 18, 19 | DIN, CLK, DOUT |
+| 14, 15, 23 | EN_FAULT1-3 (one per L6226; open-drain style - the board pulls up, firmware drives low to disable, reads low as a fault) |
+| 16, 17, 18, 19 | SPI0 pins: DIN (MOSI), ESP_CS, CLK (SCK), DOUT (MISO) |
 | 20-22 | Status LEDs: PWR, DATA, FAULT (left to right on the board) |
-| 23 | DIN_ESP - WS2812 pixel input from the optional ESP module |
 | 26-28 | VS1-VS3 voltage sense (ADC0-2) |
 | 24, 25, 29 | Spare |
+
+### Test pads
+VS1-VS3, HVBUS, MAIN_IN, ESP_5V, +5V, +3V3 and two GND pads.
 
 ## Configuration
 There are no DIP switches. Settings (output modes and input mode below) are stored in flash and changed over the USB-C port (USB serial console), and a BOOT/SETUP push button is fitted on the QSPI chip-select line (hold it while resetting or powering up to enter the USB bootloader; the firmware can also read it as a user button, using the standard Pico-SDK BOOTSEL technique, to step through presets with the status LEDs showing the selection).
