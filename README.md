@@ -14,16 +14,18 @@ SmartishFairy is a smart controller for inexpensive consumer fairy lights that p
 ## Hardware Specifications
 
 ### Power and Output
-- Input voltage: 8-52V DC per driver (L6226 limit). Match each driver's supply to the rated voltage of the light strings on it (typically 24-31V for mains-adapter strings). Three independent supply inputs (IN1-IN3) can be linked with the J9/J10 jumpers.
-- Each supply input has a series Schottky diode (reverse-polarity protection) and a **DNP** TVS footprint (SMBJ33A). Fit the TVS only on inputs of 31V or less - no TVS can protect the L6226 (60V absolute max) above about 33V. For higher-voltage strings, connect the adapter to the board *before* plugging it into the wall (long adapter leads plus ceramic caps can ring to almost twice the supply voltage on hot-plug).
-- Output channels: 12 channels total (6 strings, each wired as one H-bridge output pair)
-- Driver: 3 x L6226QTR dual full-bridge drivers. The L6226 can drive both outputs of a bridge high at the same time, which the independent output modes rely on.
+- **Single main input, 12-50 V DC** (`MAIN_IN`): Data_In pin 4 (V+ over the lighting-control cable) or the Main_In terminal, diode-OR-ed for reverse-polarity protection. Data_Out pin 4 passes the input power on through a 3A PTC fuse. A TVS footprint is provided but unfitted; fit SMBJ28A only on 12-24 V builds (no TVS can protect the 60 V-rated parts above about 33 V), and connect the supply to the board before plugging it into the wall.
+- **High-voltage bus (`HVBUS`)** feeds the three L6226 drivers (VS1-VS3 through 0R links). Build options: pass-through diode (MAIN_IN is already the string voltage, 24-50 V - populated today), or a boost converter for a "12 V mode" (planned; lower power by design). Planned: a software-set buck converter per driver (24-48 V) so each driver can run a different string voltage; the 0R links are fitted when the per-driver buck is not.
+- Output channels: 12 channels total (6 strings, each wired as one H-bridge output pair), 3 x L6226QTR dual full-bridge drivers. The L6226 can drive both outputs of a bridge high at once, which the independent output modes rely on. Sized for one 1000-LED string per output (about 6-12 W at 31 V).
 - Overcurrent trip: R_CL = 22K gives about 0.5A (I = 11050 / R_CL). Each driver's EN/OCD pins form one fault node (pull-up + 5.6nF); a fault disables both bridges of that driver and is readable on its EN_FAULT GPIO.
-- Logic power: a 5V buck (LMR16006X, 700kHz) runs from whichever of VS1-VS3 is powered, OR-ed (diodes) with USB 5V and the Ctl_Pwr terminal, so the board runs from a single supply. 3.3V comes from an AP2112K LDO.
-- Supply voltage monitoring: each VS rail is divided by about 17 (100K/6.2K) into an RP2040 ADC pin (52V reads 3.0V).
+- Logic power: a 5 V buck from MAIN_IN feeds the system 5 V rail (diode-OR-ed with USB 5 V, so USB-only bench configuration works) and, separately, the optional ESP module. 3.3 V comes from an AP2112K LDO off the 5 V rail.
+- Supply voltage monitoring: each VS rail is divided by about 17 (100K/6.2K) into an RP2040 ADC pin (52 V reads 3.0 V).
+
+### Optional ESP32 / WLED module
+A Wemos D1 mini style pair of 1x8 headers (fits boards such as the LOLIN S3 Mini and the classic D1 mini; check your board's pinout) and a 3-pin header (5V / DATA / GND) for any other module. The module is powered from its 5V pin from the main buck only (not from USB), is programmed through its own USB, and its WLED pixel output feeds the RP2040 (GPIO23, `DIN_ESP`) as an internal WS2812 input. Pick the module's data pin with one of three solder jumpers; 3V3 is not connected. Keep the antenna end clear of copper and away from the converters.
 
 ### Data Interface
-- Data_In / Data_Out terminals carry GND, CLK, DIN/DOUT and 5V. DIN and CLK are buffered into the 3.3V domain (74LVC2G17, 5V-tolerant inputs); DOUT is buffered up to 5V (74AHCT1G125). CLK is input-only and is passed through to Data_Out.
+- Data_In / Data_Out terminals carry GND, CLK, DIN/DOUT and V+ (MAIN_IN, passed through). DIN and CLK are buffered into the 3.3V domain (74LVC2G17, 5V-tolerant inputs); DOUT is buffered up to 5V (74AHCT1G125) from the 5 V rail. CLK is input-only and is passed through to Data_Out.
 - USB D+/D- are protected by a USBLC6-2SC6 ESD array.
 
 ### Pin Allocation (RP2040)
@@ -33,7 +35,8 @@ SmartishFairy is a smart controller for inexpensive consumer fairy lights that p
 | 2-13 | CH0-CH11 driver inputs. Each bridge's IN1/IN2 are an even/odd pair so they share a PWM slice (CH0/CH1 are on GPIO12/13) |
 | 14, 15, 17 | EN_FAULT1-3 (one per L6226; open-drain style - the board pulls up, firmware drives low to disable, reads low as a fault) |
 | 16, 18, 19 | DIN, CLK, DOUT |
-| 20-23 | Status LEDs: PWR, DATA, FAULT, SETUP (left to right on the board) |
+| 20-22 | Status LEDs: PWR, DATA, FAULT (left to right on the board) |
+| 23 | DIN_ESP - WS2812 pixel input from the optional ESP module |
 | 26-28 | VS1-VS3 voltage sense (ADC0-2) |
 | 24, 25, 29 | Spare |
 

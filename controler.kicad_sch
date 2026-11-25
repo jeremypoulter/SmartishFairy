@@ -6106,16 +6106,6 @@
 	)
 	(wire
 		(pts
-			(xy 176.53 67.31) (xy 176.53 69.85)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "726197ed-ab13-4b8b-ae9f-9a95d07f171f")
-	)
-	(wire
-		(pts
 			(xy 127 163.83) (xy 130.81 163.83)
 		)
 		(stroke
@@ -6646,16 +6636,6 @@
 	)
 	(wire
 		(pts
-			(xy 176.53 77.47) (xy 176.53 80.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c96b8a31-1d76-4d96-9cf2-14544d13d04f")
-	)
-	(wire
-		(pts
 			(xy 207.01 67.31) (xy 207.01 69.85)
 		)
 		(stroke
@@ -6773,16 +6753,6 @@
 			(type default)
 		)
 		(uuid "db99a37e-f72d-4f46-a5da-8257936e7369")
-	)
-	(wire
-		(pts
-			(xy 176.53 87.63) (xy 176.53 90.17)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dc8fff52-3747-4879-bceb-b134f6c842ce")
 	)
 	(wire
 		(pts
@@ -7084,16 +7054,6 @@
 		)
 		(uuid "4a04efa5-badd-4f00-b803-393132dbf163")
 	)
-	(label "LED_SETUP"
-		(at 133.35 110.49 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "52994581-2d36-4587-9aba-0f5b08153941")
-	)
 	(label "LED_FAULT"
 		(at 186.69 67.31 90)
 		(effects
@@ -7213,16 +7173,6 @@
 			(justify right bottom)
 		)
 		(uuid "b0af8f4a-38ac-46e2-a58e-416b9a4d2c69")
-	)
-	(label "LED_SETUP"
-		(at 176.53 67.31 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "b9028d4b-989f-4bdb-80f2-99a5f2889f38")
 	)
 	(label "QSDI_SD1"
 		(at 69.85 77.47 180)
@@ -9186,88 +9136,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 176.53 73.66 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "5f5fd0d5-5113-4066-8e22-06cba2b32cd1")
-		(property "Reference" "R24"
-			(at 179.07 73.025 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "1K"
-			(at 179.07 75.565 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 174.752 73.66 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 176.53 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 176.53 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "b8237e7c-b8db-4a08-9b68-dad8cab58c60")
-		)
-		(pin "2"
-			(uuid "979f81fe-925a-4c14-8ce6-fc40909ebd7b")
-		)
-		(instances
-			(project "SmartishFairy"
-				(path "/c494d399-9c3e-4fb0-8fd0-96c74769e433/c3e5f29d-a8aa-4f99-a65b-6663a6477720"
-					(reference "R24")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 76.2 132.08 0)
 		(unit 1)
@@ -10388,84 +10256,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 176.53 90.17 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9298c2b8-176f-40c5-ad98-d43ac6c8be14")
-		(property "Reference" "#PWR050"
-			(at 176.53 96.52 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 176.53 95.25 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 176.53 90.17 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 176.53 90.17 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 176.53 90.17 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "e4524e3f-fad6-4ef6-bfee-e2587cf2afe1")
-		)
-		(instances
-			(project "SmartishFairy"
-				(path "/c494d399-9c3e-4fb0-8fd0-96c74769e433/c3e5f29d-a8aa-4f99-a65b-6663a6477720"
-					(reference "#PWR050")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
 		(at 220.98 116.84 0)
 		(unit 1)
@@ -10877,88 +10667,6 @@
 			(project "SmartishFairy"
 				(path "/c494d399-9c3e-4fb0-8fd0-96c74769e433/c3e5f29d-a8aa-4f99-a65b-6663a6477720"
 					(reference "#PWR044")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED")
-		(at 176.53 83.82 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a9665333-3e60-4cbd-8f57-3b1ce36c9137")
-		(property "Reference" "D4"
-			(at 180.34 84.1374 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "LED"
-			(at 180.34 86.6774 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
-			(at 176.53 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 176.53 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 176.53 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "02f2b5ef-a66c-47e4-bad4-afb3387239bb")
-		)
-		(pin "2"
-			(uuid "85790c8f-c7a5-4a0c-880b-ce22f07a4f29")
-		)
-		(instances
-			(project "SmartishFairy"
-				(path "/c494d399-9c3e-4fb0-8fd0-96c74769e433/c3e5f29d-a8aa-4f99-a65b-6663a6477720"
-					(reference "D4")
 					(unit 1)
 				)
 			)
@@ -13144,5 +12852,16 @@
 			(justify left bottom)
 		)
 		(uuid "e58e21f5-29ac-401e-88f0-5bf0830aed87")
+	)
+	(hierarchical_label "DIN_ESP"
+		(shape input)
+		(at 133.35 110.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "90374d88-448f-427a-b491-761ed8ca2220")
 	)
 )
