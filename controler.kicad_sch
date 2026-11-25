@@ -12633,18 +12633,6 @@
 		)
 		(uuid "681681d2-ca47-435a-85d9-51785690dc59")
 	)
-	(no_connect
-		(at 130.81 113.03)
-		(uuid "6cd06419-2ef0-4fc7-9837-409634f76d30")
-	)
-	(no_connect
-		(at 130.81 115.57)
-		(uuid "289944ce-4bc8-40a2-9988-0dbd3523fdd1")
-	)
-	(no_connect
-		(at 130.81 128.27)
-		(uuid "40590f78-f15e-40f5-9d83-bb844df3bdde")
-	)
 	(symbol
 		(lib_id "Switch:SW_Push")
 		(at 271.78 142.24 0)
@@ -12874,5 +12862,68 @@
 			(justify left bottom)
 		)
 		(uuid "8b31e542-0cc0-4074-a4fe-8e82eaf9b929")
+	)
+	(wire
+		(pts
+			(xy 130.81 113.03) (xy 133.35 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "65e07f5a-7fa7-4429-8304-c369304b733c")
+	)
+	(hierarchical_label "I2C_SDA"
+		(shape bidirectional)
+		(at 133.35 113.03 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "fa83ce70-75f6-4eea-a32e-99474b7d8d1d")
+	)
+	(wire
+		(pts
+			(xy 130.81 115.57) (xy 133.35 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a2f36074-e5cf-442f-8748-b7423ec08fba")
+	)
+	(hierarchical_label "I2C_SCL"
+		(shape bidirectional)
+		(at 133.35 115.57 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "ab049f88-fa9a-4164-8293-509b465997c3")
+	)
+	(wire
+		(pts
+			(xy 130.81 128.27) (xy 133.35 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2dc7a4bf-a8ac-4672-bc07-64fd7f82e154")
+	)
+	(hierarchical_label "HV_SENSE"
+		(shape input)
+		(at 133.35 128.27 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "8fa483b0-6dbf-4581-b824-46a8d584759f")
 	)
 )

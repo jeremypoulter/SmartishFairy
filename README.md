@@ -15,10 +15,13 @@ SmartishFairy is a smart controller for inexpensive consumer fairy lights that p
 
 ### Power and Output
 - **Single main input, 12-50 V DC** (`MAIN_IN`): Data_In pin 4 (V+ over the lighting-control cable) or the Main_In terminal, diode-OR-ed for reverse-polarity protection. Data_Out pin 4 passes the input power on through a 3A PTC fuse. A TVS footprint is provided but unfitted; fit SMBJ28A only on 12-24 V builds (no TVS can protect the 60 V-rated parts above about 33 V), and connect the supply to the board before plugging it into the wall.
-- **High-voltage bus (`HVBUS`)** feeds the three L6226 drivers (VS1-VS3 through 0R links). Build options: pass-through diode (MAIN_IN is already the string voltage, 24-50 V - populated today), or a boost converter for a "12 V mode" (planned; lower power by design). Planned: a software-set buck converter per driver (24-48 V) so each driver can run a different string voltage; the 0R links are fitted when the per-driver buck is not.
+- **High-voltage bus (`HVBUS`)** feeds the per-driver supplies. Build options: **pass-through** (SS310 from MAIN_IN: MAIN_IN is already the string voltage, 24-50 V) and/or a **boost converter** for a "12 V mode" (XL6019E1, software-set 26-50 V, about 30 W from 12 V, MAIN_IN <= ~30 V on boost builds; the diode must be >= 60 V).
+- **Per-driver supply:** either a **software-set LM5164 buck** (HVBUS -> VSn, about 24-50 V, 1 A each) or a 0R link from HVBUS to VSn (shared voltage). Fit one or the other for each driver.
+- **Software control:** an I2C DAC (MCP4728, one channel per converter) injects current into each converter's feedback pin; the ADC reads VS1-VS3 and HVBUS back so the firmware can trim to the exact voltage. Every converter enable has a pull-down, so nothing runs until the firmware has set the DAC. Set the DAC's EEPROM power-up value to its maximum code (lowest voltage). The DAC is powered from 3.3 V, so keep codes at or below 3.2 V.
+- **Build straps:** an I2C expander (PCA9538) drives the converter enables and reads one strap per optional block (boost, buck 1-3): a 0R to GND in the block means it is fitted, a 100K pull-up means it is not. One firmware therefore adapts to whatever was assembled.
 - Output channels: 12 channels total (6 strings, each wired as one H-bridge output pair), 3 x L6226QTR dual full-bridge drivers. The L6226 can drive both outputs of a bridge high at once, which the independent output modes rely on. Sized for one 1000-LED string per output (about 6-12 W at 31 V).
 - Overcurrent trip: R_CL = 22K gives about 0.5A (I = 11050 / R_CL). Each driver's EN/OCD pins form one fault node (pull-up + 5.6nF); a fault disables both bridges of that driver and is readable on its EN_FAULT GPIO.
-- Logic power: a 5 V buck from MAIN_IN feeds the system 5 V rail (diode-OR-ed with USB 5 V, so USB-only bench configuration works) and, separately, the optional ESP module. 3.3 V comes from an AP2112K LDO off the 5 V rail.
+- Logic power: a 5 V LM5164 buck (about 300 kHz, 1 A) from MAIN_IN feeds the system 5 V rail (diode-OR-ed with USB 5 V, so USB-only bench configuration works) and, separately, the optional ESP module. 3.3 V comes from an AP2112K LDO off the 5 V rail.
 - Supply voltage monitoring: each VS rail is divided by about 17 (100K/6.2K) into an RP2040 ADC pin (52 V reads 3.0 V).
 
 ### Optional ESP32 / WLED module
@@ -39,7 +42,8 @@ A Wemos D1 mini (generic pinout) pair of 1x8 sockets, with the module stacked ab
 | 16, 17, 18, 19 | SPI0 pins: DIN (MOSI), ESP_CS, CLK (SCK), DOUT (MISO) |
 | 20-22 | Status LEDs: PWR, DATA, FAULT (left to right on the board) |
 | 26-28 | VS1-VS3 voltage sense (ADC0-2) |
-| 24, 25, 29 | Spare |
+| 24, 25 | I2C0 SDA/SCL (DAC and expander) |
+| 29 | HV_SENSE - HVBUS voltage (ADC3) |
 
 ### Test pads
 VS1-VS3, HVBUS, MAIN_IN, ESP_5V, +5V, +3V3 and two GND pads.
