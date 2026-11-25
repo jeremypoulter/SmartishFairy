@@ -12483,7 +12483,7 @@
 		)
 		(uuid "799076ef-4d01-4390-ba33-c6884f270e63")
 	)
-	(label "VS_SENSE1"
+	(label "VS_SENSE1_D"
 		(at 68.58 220.98 270)
 		(effects
 			(font
@@ -12582,7 +12582,7 @@
 		)
 		(uuid "07da011f-a13e-4315-bb7e-724d081d6cf0")
 	)
-	(label "VS_SENSE1"
+	(label "VS_SENSE1_D"
 		(at 78.74 208.28 90)
 		(effects
 			(font
@@ -12768,7 +12768,7 @@
 		)
 		(uuid "0a5b7e52-bc03-4b86-9fc0-a00e82670176")
 	)
-	(label "VS_SENSE1"
+	(label "VS_SENSE1_D"
 		(at 88.9 208.28 90)
 		(effects
 			(font
@@ -13061,7 +13061,7 @@
 		)
 		(uuid "dfd0165b-4aca-4837-8637-b08f205bf0c6")
 	)
-	(label "VS_SENSE2"
+	(label "VS_SENSE2_D"
 		(at 147.32 220.98 270)
 		(effects
 			(font
@@ -13160,7 +13160,7 @@
 		)
 		(uuid "59bb860d-c707-43fb-bdbb-a4ab6eb23bcc")
 	)
-	(label "VS_SENSE2"
+	(label "VS_SENSE2_D"
 		(at 157.48 208.28 90)
 		(effects
 			(font
@@ -13346,7 +13346,7 @@
 		)
 		(uuid "5050c28a-f98f-440c-83fa-3498f9e960a9")
 	)
-	(label "VS_SENSE2"
+	(label "VS_SENSE2_D"
 		(at 167.64 208.28 90)
 		(effects
 			(font
@@ -13639,7 +13639,7 @@
 		)
 		(uuid "4ee461d4-f860-4618-9617-09fddd2a2f15")
 	)
-	(label "VS_SENSE3"
+	(label "VS_SENSE3_D"
 		(at 228.6 220.98 270)
 		(effects
 			(font
@@ -13738,7 +13738,7 @@
 		)
 		(uuid "1ef6ea1d-61bc-48d2-9120-27f7ca58d2c1")
 	)
-	(label "VS_SENSE3"
+	(label "VS_SENSE3_D"
 		(at 238.76 208.28 90)
 		(effects
 			(font
@@ -13924,7 +13924,7 @@
 		)
 		(uuid "1a1b5127-39ee-44de-acee-1fd95f87afa4")
 	)
-	(label "VS_SENSE3"
+	(label "VS_SENSE3_D"
 		(at 248.92 208.28 90)
 		(effects
 			(font
@@ -17831,7 +17831,7 @@
 				)
 			)
 		)
-		(property "Value" "3A PTC"
+		(property "Value" "3A PTC 60V"
 			(at 175.26 236.22 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17841,7 +17841,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Fuse:Fuse_1812_4532Metric"
+		(property "Footprint" "Fuse:Fuse_2920_7451Metric"
 			(at 172.72 234.95 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17929,7 +17929,7 @@
 		)
 		(uuid "db75b6bf-c029-4882-bd27-a8b8db080064")
 	)
-	(text "MAIN_IN (12-50 V) = Data_In pin 4 or Main_In terminal, diode-OR-ed (reverse-polarity protection).\nTVS is DNP: fit SMBJ28A only on 12-24 V builds (no TVS can protect 60 V parts above ~33 V).\nF1 protects the Data_Out pin 4 pass-through."
+	(text "MAIN_IN (12-50 V) = Data_In pin 4 or Main_In terminal, diode-OR-ed (reverse-polarity protection).\nTVS is DNP: fit SMBJ28A only on 12-24 V builds (no TVS can protect 60 V parts above ~33 V).\nF1 (PTC rated >= 60 V; choose the part and check its fault-current rating) protects the Data_Out pin 4 pass-through."
 		(exclude_from_sim no)
 		(at 30.48 250 0)
 		(effects
@@ -21769,7 +21769,7 @@
 				)
 			)
 		)
-		(property "Value" "59.0K"
+		(property "Value" "54.9K"
 			(at 44.45 407.67 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22596,7 +22596,7 @@
 			)
 		)
 	)
-	(text "5 V logic buck: LM5164, fSW = Vout x 2500 / RON = 303 kHz, Type-3 ripple network (RA/CA/CB), UVLO on at ~9.5 V.\nL5_SW -> 33uH -> 5V_MAIN (-> system 5 V via diode, and ESP via diode)."
+	(text "5 V logic buck: LM5164, fSW = Vout x 2500 / RON ~ 320 kHz, Type-3 ripple network (RA/CA/CB), UVLO on at ~9.5 V.\nVout = 5.3 V (R49 187k / R50 54.9k) so that behind the output diodes the 74AHCT buffer and ESP module still see >= 4.5 V.\nL5_SW -> 33uH -> 5V_MAIN (-> system 5 V via diode, and ESP via diode)."
 		(exclude_from_sim no)
 		(at 30 308 0)
 		(effects
@@ -22616,7 +22616,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "00aa8859-7948-4a9a-a4fa-e83434b05a2a")
 		(property "Reference" "U15"
 			(at 280 313 0)
@@ -22947,7 +22947,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "28505a93-0672-47fe-825b-66aa23774b05")
 		(property "Reference" "C50"
 			(at 252.73 364.49 0)
@@ -23133,7 +23133,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "3b803cb1-2ebb-4a97-b6b1-a7d83cbe2ae3")
 		(property "Reference" "C51"
 			(at 264.16 364.49 0)
@@ -23252,7 +23252,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "6f790dc8-2aff-4f25-a242-452879736c28")
 		(property "Reference" "R54"
 			(at 276.86 364.49 0)
@@ -23438,7 +23438,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "d130954c-c8d5-4281-aa1a-5d6241909aae")
 		(property "Reference" "L2"
 			(at 288.29 364.49 0)
@@ -23557,7 +23557,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "0a520177-b287-4da6-b0c3-f15dd425d3e0")
 		(property "Reference" "R55"
 			(at 300.99 364.49 0)
@@ -23743,7 +23743,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "dfe17bf0-4d48-413a-a833-6e4ddb63075f")
 		(property "Reference" "R56"
 			(at 312.42 364.49 0)
@@ -23929,7 +23929,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "bfa2744c-9367-4acc-bd08-7886cf3ebb93")
 		(property "Reference" "R57"
 			(at 252.73 405.13 0)
@@ -24048,7 +24048,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "d50a2a2d-d495-4b66-ab6e-2aae027049be")
 		(property "Reference" "R58"
 			(at 264.16 405.13 0)
@@ -24234,7 +24234,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "ad27e6b2-99ce-4bb4-a0d1-c547b71f781e")
 		(property "Reference" "R59"
 			(at 276.86 405.13 0)
@@ -24353,7 +24353,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "422f0d29-eac6-4b79-8d6c-aa2c0c94b5c6")
 		(property "Reference" "R60"
 			(at 288.29 405.13 0)
@@ -24472,7 +24472,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "d76587bf-9ce3-498c-9e32-ce10b6b8621c")
 		(property "Reference" "C52"
 			(at 300.99 405.13 0)
@@ -24591,7 +24591,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "eca7499e-252d-41c0-a2c9-9687ac7bfe1e")
 		(property "Reference" "C53"
 			(at 312.42 405.13 0)
@@ -24701,7 +24701,7 @@
 		)
 		(uuid "1533870e-89df-42b0-b612-fa0c9ae81173")
 	)
-	(text "Driver 1 buck (LM5164): VSn = 1.2V x (1 + 499k/15.2k + 499k/60.4k) - Vdac x 499k/60.4k = 24..50.5 V for Vdac 3.2..0 V.\nFit EITHER this buck OR the 0R link to HVBUS. fSW = 400-800 kHz."
+	(text "Driver 1 buck (LM5164, DNP by default): VSn = 1.2V x (1 + 499k/15.2k + 499k/60.4k) - Vdac x 499k/60.4k = 24..50.5 V for Vdac 3.2..0 V.\nFit EITHER this buck block OR the 0R link to HVBUS, never both. fSW = 400-800 kHz."
 		(exclude_from_sim no)
 		(at 250 308 0)
 		(effects
@@ -24721,7 +24721,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "029bc410-b647-47ee-8756-3509b4bab55e")
 		(property "Reference" "U16"
 			(at 380 313 0)
@@ -25052,7 +25052,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "7ddf950c-86c2-458f-8fcf-fab918bb6e2d")
 		(property "Reference" "C54"
 			(at 353.06 364.49 0)
@@ -25238,7 +25238,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "e05faac4-8072-4f37-a72b-022a34404364")
 		(property "Reference" "C55"
 			(at 364.49 364.49 0)
@@ -25357,7 +25357,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "2ea93001-6b79-4771-ac2a-6a13924a4a17")
 		(property "Reference" "R61"
 			(at 375.92 364.49 0)
@@ -25543,7 +25543,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "e6c695f1-2b6e-4cb3-b1d3-b2fcef674094")
 		(property "Reference" "L3"
 			(at 388.62 364.49 0)
@@ -25662,7 +25662,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "8271f152-7c12-4962-a342-0d6e6fd1dcf7")
 		(property "Reference" "R62"
 			(at 400.05 364.49 0)
@@ -25848,7 +25848,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "a8d89ad7-9e00-4690-acac-8193a260372b")
 		(property "Reference" "R63"
 			(at 412.75 364.49 0)
@@ -26034,7 +26034,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "6c347514-c8f2-42cd-a271-d0f73b856fbe")
 		(property "Reference" "R64"
 			(at 353.06 405.13 0)
@@ -26153,7 +26153,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "fddaadda-c1d9-42c6-9796-e369ca75fed9")
 		(property "Reference" "R65"
 			(at 364.49 405.13 0)
@@ -26339,7 +26339,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "a45e7903-f12a-44d3-a107-ada1e216fa91")
 		(property "Reference" "R66"
 			(at 375.92 405.13 0)
@@ -26458,7 +26458,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "0908cae5-acf2-4327-9ca2-95daf74c81b6")
 		(property "Reference" "R67"
 			(at 388.62 405.13 0)
@@ -26577,7 +26577,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "6767ab32-7031-4d21-96ec-c5e6575366dc")
 		(property "Reference" "C56"
 			(at 400.05 405.13 0)
@@ -26696,7 +26696,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "96797f23-372c-4411-9b93-c4813aa68af1")
 		(property "Reference" "C57"
 			(at 412.75 405.13 0)
@@ -26806,7 +26806,7 @@
 		)
 		(uuid "e79784b7-c620-4a13-9de1-74a5cbc89d45")
 	)
-	(text "Driver 2 buck (LM5164): VSn = 1.2V x (1 + 499k/15.2k + 499k/60.4k) - Vdac x 499k/60.4k = 24..50.5 V for Vdac 3.2..0 V.\nFit EITHER this buck OR the 0R link to HVBUS. fSW = 400-800 kHz."
+	(text "Driver 2 buck (LM5164, DNP by default): VSn = 1.2V x (1 + 499k/15.2k + 499k/60.4k) - Vdac x 499k/60.4k = 24..50.5 V for Vdac 3.2..0 V.\nFit EITHER this buck block OR the 0R link to HVBUS, never both. fSW = 400-800 kHz."
 		(exclude_from_sim no)
 		(at 350 308 0)
 		(effects
@@ -26826,7 +26826,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "69d77fb6-a1b2-45d7-922f-8b3502f8722c")
 		(property "Reference" "U17"
 			(at 480 313 0)
@@ -27157,7 +27157,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "1668f351-3ea3-402a-bd7e-b1cff1de35aa")
 		(property "Reference" "C58"
 			(at 452.12 364.49 0)
@@ -27343,7 +27343,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "ede2a343-596d-4cd6-977c-c04550dcf0a2")
 		(property "Reference" "C59"
 			(at 464.82 364.49 0)
@@ -27462,7 +27462,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "200392e1-a549-4e95-9a63-d9770a082543")
 		(property "Reference" "R68"
 			(at 476.25 364.49 0)
@@ -27648,7 +27648,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "08eeee4f-c82f-46b6-b31a-cbcc2e90d218")
 		(property "Reference" "L4"
 			(at 488.95 364.49 0)
@@ -27767,7 +27767,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "0955d5ae-43b0-4e11-a058-fec96c83ec4e")
 		(property "Reference" "R69"
 			(at 500.38 364.49 0)
@@ -27953,7 +27953,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "2c644e37-33e4-4ee7-aaf4-f04a27e17f25")
 		(property "Reference" "R70"
 			(at 513.08 364.49 0)
@@ -28139,7 +28139,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "4cc1138c-010f-4996-a3b4-1e6637df9f1a")
 		(property "Reference" "R71"
 			(at 452.12 405.13 0)
@@ -28258,7 +28258,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "37652625-ec68-48b5-b6c8-183d1822bc35")
 		(property "Reference" "R72"
 			(at 464.82 405.13 0)
@@ -28444,7 +28444,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "0a83d0fe-b203-44fd-8814-5d7fedebbba1")
 		(property "Reference" "R73"
 			(at 476.25 405.13 0)
@@ -28563,7 +28563,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "e3983dc7-09a4-4a14-bbde-1d8eba699662")
 		(property "Reference" "R74"
 			(at 488.95 405.13 0)
@@ -28682,7 +28682,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "5b688549-3d90-40fb-932b-a0b94b723bc8")
 		(property "Reference" "C60"
 			(at 500.38 405.13 0)
@@ -28801,7 +28801,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "8e3dc17d-1f37-419c-96da-e28546e2d301")
 		(property "Reference" "C61"
 			(at 513.08 405.13 0)
@@ -28911,7 +28911,7 @@
 		)
 		(uuid "6d5ac52b-3978-4eec-b953-0fbd86a65710")
 	)
-	(text "Driver 3 buck (LM5164): VSn = 1.2V x (1 + 499k/15.2k + 499k/60.4k) - Vdac x 499k/60.4k = 24..50.5 V for Vdac 3.2..0 V.\nFit EITHER this buck OR the 0R link to HVBUS. fSW = 400-800 kHz."
+	(text "Driver 3 buck (LM5164, DNP by default): VSn = 1.2V x (1 + 499k/15.2k + 499k/60.4k) - Vdac x 499k/60.4k = 24..50.5 V for Vdac 3.2..0 V.\nFit EITHER this buck block OR the 0R link to HVBUS, never both. fSW = 400-800 kHz."
 		(exclude_from_sim no)
 		(at 450 308 0)
 		(effects
@@ -28931,7 +28931,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "940a03e4-dfc3-41c5-ba75-040bfdce0018")
 		(property "Reference" "U12"
 			(at 60 454 0)
@@ -29197,7 +29197,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "7e945e6d-f071-4c29-9f2a-2ed55d6eb100")
 		(property "Reference" "C62"
 			(at 33.02 504.19 0)
@@ -29383,7 +29383,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "e0545ee3-7e01-46f8-a076-7f8e0c682976")
 		(property "Reference" "C63"
 			(at 44.45 504.19 0)
@@ -29569,7 +29569,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "8e2eae70-dfc5-45d6-80e7-96a8a0c22e7a")
 		(property "Reference" "C64"
 			(at 57.15 504.19 0)
@@ -29755,7 +29755,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "78a7fdfc-d638-4471-9264-26f00ba1b55f")
 		(property "Reference" "L5"
 			(at 68.58 504.19 0)
@@ -29874,7 +29874,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "79e9586a-c0df-49b8-bb89-8fa98669899e")
 		(property "Reference" "D26"
 			(at 99.06 504.19 0)
@@ -29993,7 +29993,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "a38919bc-b3d3-489e-9639-29ad49845478")
 		(property "Reference" "R75"
 			(at 33.02 544.83 0)
@@ -30112,7 +30112,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "4484fe28-f200-4eaf-9757-c21739d63693")
 		(property "Reference" "R76"
 			(at 44.45 544.83 0)
@@ -30298,7 +30298,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "4f33850f-1f44-4625-8fb6-f76ef50d00db")
 		(property "Reference" "R77"
 			(at 57.15 544.83 0)
@@ -30417,7 +30417,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "4d6106e8-9f0c-4379-a4f2-cbd67bf23ed0")
 		(property "Reference" "R78"
 			(at 68.58 544.83 0)
@@ -30603,7 +30603,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "68faf605-3323-4edb-bc7d-cfc1220b1fcd")
 		(property "Reference" "R79"
 			(at 80.01 544.83 0)
@@ -30780,7 +30780,7 @@
 			)
 		)
 	)
-	(text "12 V mode boost (build option): XL6019E1, VOUT = 1.25V x (1 + 100k/3.16k + 100k/13.3k) - Vdac x 100k/13.3k = 26..50 V.\nMAIN_IN must stay <= ~30 V on boost builds (VIN abs max 45 V); diode >= 60 V; tab = SW node."
+	(text "12 V mode boost (build option, DNP by default): XL6019E1, VOUT = 1.25V x (1 + 100k/3.16k + 100k/13.3k) - Vdac x 100k/13.3k = 26..50 V.\nA boost cannot go below MAIN_IN minus the diode drop: fit it only when MAIN_IN <= ~24 V (VIN abs max 45 V). Diode >= 60 V; tab = SW node."
 		(exclude_from_sim no)
 		(at 30 446 0)
 		(effects
@@ -31272,7 +31272,7 @@
 		)
 		(uuid "d5ecdd69-2844-4e85-844b-0306aaa21e9b")
 	)
-	(label "HV_SENSE"
+	(label "HV_SENSE_D"
 		(at 274.32 476.25 270)
 		(effects
 			(font
@@ -31371,7 +31371,7 @@
 		)
 		(uuid "61526a67-cfa8-42a0-8aab-efad0cb6dcc2")
 	)
-	(label "HV_SENSE"
+	(label "HV_SENSE_D"
 		(at 285.75 463.55 90)
 		(effects
 			(font
@@ -31557,7 +31557,7 @@
 		)
 		(uuid "199b29da-901c-44ff-8d25-be92bcbc0688")
 	)
-	(label "HV_SENSE"
+	(label "HV_SENSE_D"
 		(at 298.45 463.55 90)
 		(effects
 			(font
@@ -34621,7 +34621,7 @@
 			)
 		)
 	)
-	(text "MCP4728: internal 2.048 V ref x2 gain, VDD = 3.3 V so outputs saturate near 3.3 V - keep codes <= 3.2 V. Program EEPROM default = max code (lowest VS).\nPCA9538: IO0-3 enables (10k pull-downs keep every converter off at power-up), IO4-7 read the build straps (0R to GND = block fitted, 100k pull-up otherwise)."
+	(text "MCP4728: internal 2.048 V ref x2 gain, VDD = 3.3 V so outputs saturate near 3.3 V - keep codes <= 3.2 V.\nEEPROM power-up defaults: DAC1-3 = max code (lowest VS); DAC0 (boost) = 0 V so nothing is injected into the boost FB while MAIN_IN is absent (USB-only).\nPCA9538: IO0-3 enables (10k pull-downs keep every converter off at power-up), IO4-7 read the build straps (0R to GND = block fitted, 100k pull-up otherwise)."
 		(exclude_from_sim no)
 		(at 400 446 0)
 		(effects
@@ -34632,7 +34632,7 @@
 		)
 		(uuid "45e8402b-501e-4f6d-b7ce-57f6926b5634")
 	)
-	(text "HVBUS = MAIN_IN through SS310 (pass-through) and/or the boost converter. Per driver: fit the LM5164 buck OR the 0R link (R44-R46) to HVBUS.\nBuild straps tell the firmware what is fitted."
+	(text "HVBUS = MAIN_IN through SS310 (pass-through) and/or the boost converter. Per driver: fit the LM5164 buck block OR the 0R link (R44-R46) to HVBUS, never both.\nDEFAULT POPULATION: pass-through + 0R links. The boost block (U12) and the three per-driver buck blocks (U15-U17) are DNP, with their strap resistors,\nso the firmware reads them as not fitted."
 		(exclude_from_sim no)
 		(at 262 225 0)
 		(effects
@@ -34702,5 +34702,1608 @@
 			(justify left bottom)
 		)
 		(uuid "256e9b35-65cc-45d9-99b8-2a09711e3f88")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 580.39 350.52 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "297e044e-a964-4d26-b012-c63d42510017")
+		(property "Reference" "R88"
+			(at 582.93 349.25 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10K"
+			(at 582.93 351.79 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 580.39 350.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 580.39 350.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 580.39 350.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "af72e7fa-2a5e-416c-b393-c472e74f8d2f")
+		)
+		(pin "2"
+			(uuid "af99d145-eed3-48fa-9e8f-f5563174a93c")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "R88")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 580.39 346.71) (xy 580.39 344.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4b6d76f0-0d99-4e28-b060-1bd18acde298")
+	)
+	(label "VS_SENSE1_D"
+		(at 580.39 344.17 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "24b155dd-fbe6-435e-9b56-bd8623c0c5a1")
+	)
+	(wire
+		(pts
+			(xy 580.39 354.33) (xy 580.39 356.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "85c531ee-e1eb-49f1-964e-b46119a5b608")
+	)
+	(label "VS_SENSE1"
+		(at 580.39 356.87 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "6f4c3ea3-ea70-466e-8b58-7f7a8e94b3c3")
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 591.82 350.52 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "031bfc28-db94-4a4d-b727-a2e6b0d78a31")
+		(property "Reference" "C70"
+			(at 594.36 349.25 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10nF"
+			(at 594.36 351.79 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 591.82 350.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 591.82 350.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 591.82 350.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b56023c0-628b-43ec-b6c4-9c6a7938feba")
+		)
+		(pin "2"
+			(uuid "26d06b5e-7048-44ce-a2a1-6f3b09bd4ab5")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "C70")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 591.82 346.71) (xy 591.82 344.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3174b233-48fc-49ce-b275-f78b19c082b4")
+	)
+	(label "VS_SENSE1"
+		(at 591.82 344.17 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "74f836e0-1578-4285-8145-d181aeb78336")
+	)
+	(wire
+		(pts
+			(xy 591.82 354.33) (xy 591.82 356.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d10f3f9b-1ccf-40f6-b989-7ec7f183f8ee")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 591.82 356.87 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "04d41ee9-7f99-494f-aaf3-523c8d884d03")
+		(property "Reference" "#PWR0901"
+			(at 594.36 355.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 594.36 358.14 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 591.82 356.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 591.82 356.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 591.82 356.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a1d7ac26-8763-4212-8e8b-db0bda0a36a5")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "#PWR0901")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 609.6 350.52 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "88063ae8-2a2b-4455-9515-5553e2f90599")
+		(property "Reference" "R89"
+			(at 612.14 349.25 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10K"
+			(at 612.14 351.79 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 609.6 350.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 609.6 350.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 609.6 350.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c1978039-6e72-4777-8d04-9797825652a6")
+		)
+		(pin "2"
+			(uuid "acd636ef-0197-4368-908f-af0b8557767a")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "R89")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 609.6 346.71) (xy 609.6 344.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8dc07f60-c125-49fd-9ce5-8924a6fdb4a1")
+	)
+	(label "VS_SENSE2_D"
+		(at 609.6 344.17 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a3cbacb7-3369-415e-8b6a-3715f765129a")
+	)
+	(wire
+		(pts
+			(xy 609.6 354.33) (xy 609.6 356.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2ac6768d-0c73-4d20-aa32-ea0687c06761")
+	)
+	(label "VS_SENSE2"
+		(at 609.6 356.87 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "53a8f2ef-e173-45a9-a612-10fa3c73a687")
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 622.3 350.52 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "286ddd0e-1aa1-4035-9627-7882e5b89d6c")
+		(property "Reference" "C71"
+			(at 624.84 349.25 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10nF"
+			(at 624.84 351.79 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 622.3 350.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 622.3 350.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 622.3 350.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "350d38d4-9f58-43ed-b81c-1634c4afbbe7")
+		)
+		(pin "2"
+			(uuid "90bff5ec-7d67-4994-94f7-41425989a8ba")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "C71")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 622.3 346.71) (xy 622.3 344.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e9c716b7-7c46-4fcf-bb51-c2d521aa5f60")
+	)
+	(label "VS_SENSE2"
+		(at 622.3 344.17 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "fba87c09-246c-47fe-9118-cfa034210357")
+	)
+	(wire
+		(pts
+			(xy 622.3 354.33) (xy 622.3 356.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0985eafe-11ff-42aa-a24f-e06f86404d7f")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 622.3 356.87 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "8fb8d40c-b3e7-4529-aebe-93454e19dcc1")
+		(property "Reference" "#PWR0902"
+			(at 624.84 355.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 624.84 358.14 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 622.3 356.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 622.3 356.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 622.3 356.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b9e0e79b-ad86-4892-9bbb-5c95611215bc")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "#PWR0902")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 640.08 350.52 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "676e339e-53f0-48f4-a671-35d5a6a935bf")
+		(property "Reference" "R90"
+			(at 642.62 349.25 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10K"
+			(at 642.62 351.79 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 640.08 350.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 640.08 350.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 640.08 350.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "740192a2-7b88-459f-84ba-52b8cad65579")
+		)
+		(pin "2"
+			(uuid "282eed09-f74b-4eea-b45d-64d5b31de3b6")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "R90")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 640.08 346.71) (xy 640.08 344.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "80440d5f-61e9-45e8-8ec0-8bb9105fc2ea")
+	)
+	(label "VS_SENSE3_D"
+		(at 640.08 344.17 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "916a0f8c-561f-4193-8766-efc0598f7a87")
+	)
+	(wire
+		(pts
+			(xy 640.08 354.33) (xy 640.08 356.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ec7615fe-3449-485b-b42b-34bd9d93df62")
+	)
+	(label "VS_SENSE3"
+		(at 640.08 356.87 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "419840cf-df65-41b1-8d98-5a5aaf4959ba")
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 651.51 350.52 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "88cff351-f888-4f26-bb7b-e453a4e38a27")
+		(property "Reference" "C72"
+			(at 654.05 349.25 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10nF"
+			(at 654.05 351.79 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 651.51 350.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 651.51 350.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 651.51 350.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ce3669a5-f92d-422c-ad7e-e493d8b3d3cf")
+		)
+		(pin "2"
+			(uuid "609bb12a-750e-43bd-96f1-46f635abf073")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "C72")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 651.51 346.71) (xy 651.51 344.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1fca4f7b-8ea2-4294-843d-4f66c6b20133")
+	)
+	(label "VS_SENSE3"
+		(at 651.51 344.17 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "44a02b56-b220-4b56-9454-4dca4770f72a")
+	)
+	(wire
+		(pts
+			(xy 651.51 354.33) (xy 651.51 356.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d21bd789-5e44-405a-9641-ae05b197dbb6")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 651.51 356.87 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "1612ffe4-797e-4aae-973d-a6706e9adfba")
+		(property "Reference" "#PWR0903"
+			(at 654.05 355.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 654.05 358.14 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 651.51 356.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 651.51 356.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 651.51 356.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "de8bcd90-15c4-4872-a3d5-1136f4b86c90")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "#PWR0903")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 670.56 350.52 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "c6dd0b47-aac1-4cda-bec6-9ac9a78e8d0f")
+		(property "Reference" "R91"
+			(at 673.1 349.25 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10K"
+			(at 673.1 351.79 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 670.56 350.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 670.56 350.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 670.56 350.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "67602e25-3200-44d0-b135-b723b3c2143d")
+		)
+		(pin "2"
+			(uuid "509ff90e-1622-44d2-a839-f1696cacbb9d")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "R91")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 670.56 346.71) (xy 670.56 344.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a442e7fd-b80f-417b-b396-b03246415bce")
+	)
+	(label "HV_SENSE_D"
+		(at 670.56 344.17 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "31ddc3e5-1e63-4f6a-9842-33d621c95ecc")
+	)
+	(wire
+		(pts
+			(xy 670.56 354.33) (xy 670.56 356.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3a4ba0e3-ebdb-4d4b-aa71-a482c2707fe8")
+	)
+	(label "HV_SENSE"
+		(at 670.56 356.87 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "aea525ee-b2db-47d3-b540-dacfd9dd18a9")
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 681.99 350.52 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ed5fb6e7-9cc4-4cb6-aba7-1872bb490b60")
+		(property "Reference" "C73"
+			(at 684.53 349.25 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10nF"
+			(at 684.53 351.79 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 681.99 350.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 681.99 350.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 681.99 350.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7f16a3c1-b7fc-4192-b395-bd5657b694bc")
+		)
+		(pin "2"
+			(uuid "82dd2533-2dfa-41ff-affe-e7f08544a9ce")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "C73")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 681.99 346.71) (xy 681.99 344.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "06fd610c-1a1d-4d7c-ace1-aaaea434b11a")
+	)
+	(label "HV_SENSE"
+		(at 681.99 344.17 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "10d47a0b-f2d9-43b8-9f60-8719bbc82c89")
+	)
+	(wire
+		(pts
+			(xy 681.99 354.33) (xy 681.99 356.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "32eadd68-b0d5-49ec-a11b-38f784de8773")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 681.99 356.87 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "f8dd401d-c8b8-4728-bebf-5765761d9a73")
+		(property "Reference" "#PWR0904"
+			(at 684.53 355.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 684.53 358.14 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 681.99 356.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 681.99 356.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 681.99 356.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c987d5b4-24b6-4f40-8321-9041d01da7e8")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "#PWR0904")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(text "ADC pins: 10k + 10nF after each sense divider limit injection current while the 3.3 V rail is still starting.\n100k pull-downs keep the data-in buffer inputs defined when no source is connected."
+		(exclude_from_sim no)
+		(at 580 334 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6e385700-202d-49c4-8237-ee7276f44741")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 580.39 394.97 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "b9213c2c-b0fe-42c4-b6b9-953395d12359")
+		(property "Reference" "R92"
+			(at 582.93 393.7 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100K"
+			(at 582.93 396.24 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 580.39 394.97 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 580.39 394.97 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 580.39 394.97 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3f388f67-d43d-45d4-9c8a-85af7c7e9d87")
+		)
+		(pin "2"
+			(uuid "e11d0d5f-5775-4b05-b650-29187a90a5b7")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "R92")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 580.39 391.16) (xy 580.39 388.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d56adc9b-bd32-4b2d-999f-68091c4988fe")
+	)
+	(label "DIN_5V_F"
+		(at 580.39 388.62 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0bd54877-2a73-4abd-a639-d17690d9bbf9")
+	)
+	(wire
+		(pts
+			(xy 580.39 398.78) (xy 580.39 401.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0c39e7ee-c716-413f-88f1-d9488d2bd04f")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 580.39 401.32 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "e591e788-c392-4989-b180-92b2735615d5")
+		(property "Reference" "#PWR0905"
+			(at 582.93 400.05 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 582.93 402.59 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 580.39 401.32 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 580.39 401.32 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 580.39 401.32 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6a725a51-eab9-4a52-ae4c-d397d977f078")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "#PWR0905")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 591.82 394.97 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "6ee5d2e5-48cd-4e70-b3a5-c145534648f3")
+		(property "Reference" "R93"
+			(at 594.36 393.7 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100K"
+			(at 594.36 396.24 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 591.82 394.97 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 591.82 394.97 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 591.82 394.97 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9ae7b4b3-db00-47e6-a08d-c28f8abb2df2")
+		)
+		(pin "2"
+			(uuid "a2b861c1-64e6-4de2-adb2-2fb999b906e9")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "R93")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 591.82 391.16) (xy 591.82 388.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "be34d294-0717-48db-a62e-d83c8ba833bc")
+	)
+	(label "CLK_5V_F"
+		(at 591.82 388.62 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f6b5f42e-d773-4eab-b639-c701f89f2d8d")
+	)
+	(wire
+		(pts
+			(xy 591.82 398.78) (xy 591.82 401.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6975d8fd-f41e-4086-93b7-50686d66e785")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 591.82 401.32 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "505367f2-6a2b-4ee3-9ebf-d99ba7ad940f")
+		(property "Reference" "#PWR0906"
+			(at 594.36 400.05 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 594.36 402.59 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 591.82 401.32 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 591.82 401.32 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 591.82 401.32 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "06a04d2d-2023-4a6f-bf04-4b15e47aa57b")
+		)
+		(instances
+			(project "NightLight_ESP32"
+				(path "/a4dc2c03-1f24-43db-bf9a-ff45944ebc00"
+					(reference "#PWR0906")
+					(unit 1)
+				)
+			)
+		)
 	)
 )
